@@ -1,101 +1,230 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #5bc0de; /* Warna biru background */
+    padding: 0;
+    background-color: #3498db;
     display: flex;
     justify-content: center;
 }
 
 .mobile-container {
     width: 100%;
-    max-width: 450px;
-    background: linear-gradient(to bottom, #5bc0de, #48a9c5);
+    max-width: 480px;
     min-height: 100vh;
+    background: linear-gradient(180deg, #5ec8e5 0%, #2980b9 100%);
     padding: 20px;
-    text-align: center;
+    position: relative;
 }
 
-/* Header & Download Button */
-.logo-section h1 {
+/* Header */
+.header {
+    text-align: center;
     color: white;
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+.logo-section h1 {
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin: 10px 0;
 }
 
 .btn-download {
-    background: linear-gradient(to bottom, #f0ad4e, #ec971f);
+    background: linear-gradient(to bottom, #f39c12, #e67e22);
     border: none;
-    padding: 10px 40px;
     color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
     font-weight: bold;
-    border-radius: 20px;
-    margin: 20px 0;
-    box-shadow: 0 4px 0 #c67605;
+    box-shadow: 0 4px 0 #d35400;
+    cursor: pointer;
 }
 
 /* Card Form */
 .card-form {
-    background: #fdf2d0;
-    border: 3px solid #d4a76a;
+    background: #fff7e6;
+    border: 4px solid #d4a76a;
     border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 25px 15px 15px;
+    position: relative;
+    margin-top: 30px;
 }
 
 .card-header {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
     background: #d4a76a;
     color: white;
     padding: 5px 20px;
-    border-radius: 10px;
-    display: inline-block;
-    margin-top: -35px;
-    margin-bottom: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 .form-group {
-    text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .form-group label {
     display: block;
     font-weight: bold;
-    color: #333;
+    color: #555;
     margin-bottom: 5px;
 }
 
 .form-group input {
     width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
 }
 
 .btn-konfirmasi {
-    background: linear-gradient(to bottom, #8cc63f, #76aa32);
+    width: 100%;
+    background: linear-gradient(to bottom, #44bc44, #2d9e2d);
     border: none;
-    padding: 10px 30px;
     color: white;
-    border-radius: 15px;
-    box-shadow: 0 3px 0 #5a8226;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 0 4px 0 #1e6b1e;
+    cursor: pointer;
 }
 
-/* Grid Harga */
+/* Tabs */
+.tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tab-item {
+    background: #fdf2d0;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #888;
+}
+
+.tab-item.active {
+    background: #f39c12;
+    color: white;
+}
+
+/* Price Grid */
 .price-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 12px;
 }
 
 .price-item {
     background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 15px;
+    padding: 15px;
+    text-align: center;
     color: white;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    cursor: pointer;
 }
 
-.price-item .amount { font-weight: bold; font-size: 1.2rem; }
+.price-item.hot {
+    border-color: #f1c40f;
+}
+
+.badge-hot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    transform: rotate(15deg);
+}
+
+.amount {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 0.9rem;
+}
+
+/* Modal Pop-up */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff7e6;
+    width: 85%;
+    max-width: 350px;
+    border-radius: 20px;
+    border: 4px solid #d4a76a;
+    overflow: hidden;
+}
+
+.modal-banner {
+    background: #d4a76a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.text-gold { color: #d35400; }
+
+.modal-footer {
+    padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-confirm-final {
+    background: #27ae60;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.btn-close {
+    background: #bdc3c7;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
