@@ -114,3 +114,40 @@ body { margin: 0; background: #1a2a3a; font-family: sans-serif; }
 .footer-note-3d { background: rgba(0,0,0,0.15); color: white; padding: 12px; border-radius: 15px; margin-top: 25px; text-align: center; font-size: 0.8rem; width: 100%; box-sizing: border-box; }
 
 @keyframes pop { from { transform: scale(0.8); } to { transform: scale(1); } }
+/* --- EFEK HOVER (SAAT MOUSE DIATAS TOMBOL) --- */
+
+/* Tombol Download APK */
+.btn-download-3d:hover {
+    transform: scale(1.05); /* Membesar sedikit */
+    filter: brightness(1.1); /* Sedikit lebih terang */
+}
+
+/* Tombol Konfirmasi Data */
+.btn-konfirmasi-3d:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 0 #3d5e13; /* Bayangan bawah lebih tebal saat melayang */
+}
+
+/* Kartu Pilihan Bongkar (Payload) */
+.price-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Naik sedikit dan membesar */
+    background: rgba(255, 255, 255, 0.3); /* Lebih terang */
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* --- EFEK ACTIVE (SAAT TOMBOL DITEKAN/KLIK) --- */
+
+.btn-download-3d:active, 
+.btn-konfirmasi-3d:active, 
+.price-card:active {
+    transform: scale(0.95); /* Mengecil sedikit (efek membal) */
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2); /* Bayangan menipis seolah menempel ke dasar */
+}
+
+/* Transisi Halus untuk Semua Elemen Interaktif */
+.btn-download-3d, 
+.btn-konfirmasi-3d, 
+.price-card {
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi pegas/membal */
+}
