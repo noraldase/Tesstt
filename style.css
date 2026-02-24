@@ -13,6 +13,55 @@ body { margin: 0; background: #1a2a3a; font-family: sans-serif; }
     padding: 20px; display: flex; flex-direction: column; align-items: center;
 }
 
+/* Pastikan container utama tidak meluap ke samping */
+.mobile-container {
+    width: 100%;
+    max-width: 480px; /* Batas maksimal untuk tampilan desktop agar tidak terlalu lebar */
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 15px; /* Mengurangi padding sedikit agar lebih luas di layar kecil */
+    box-sizing: border-box; /* Sangat penting agar padding tidak menambah lebar elemen */
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+/* Perbaikan Logo agar tidak melebar */
+.logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.responsive-logo {
+    width: 80px;      /* Ukuran lebar default di HP */
+    height: auto;     /* Mengunci aspek rasio agar tidak gepeng/melebar */
+    max-width: 120px; /* Batas maksimal lebar logo */
+    object-fit: contain;
+}
+
+/* Memastikan Grid Harga pas di layar HP */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom */
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Ukuran Font Adaptif agar tidak berantakan di HP kecil */
+.header-title {
+    font-size: 1rem; /* Ukuran font standar mobile */
+    line-height: 1.2;
+}
+
+@media (max-width: 360px) {
+    .header-title {
+        font-size: 0.9rem; /* Lebih kecil untuk HP dengan layar sangat sempit */
+    }
+    .responsive-logo {
+        width: 60px;
+    }
+}
 .header-title { color: white; text-align: center; font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
 
 .btn-download-3d {
