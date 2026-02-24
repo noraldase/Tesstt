@@ -1,230 +1,69 @@
-* {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #3498db;
-    display: flex;
-    justify-content: center;
-}
+* { box-sizing: border-box; font-family: 'Arial', sans-serif; }
+body { margin: 0; padding: 0; background-color: #2c3e50; display: flex; justify-content: center; }
 
 .mobile-container {
-    width: 100%;
-    max-width: 480px;
-    min-height: 100vh;
+    width: 100%; max-width: 480px; min-height: 100vh;
     background: linear-gradient(180deg, #5ec8e5 0%, #2980b9 100%);
-    padding: 20px;
-    position: relative;
+    padding: 20px; text-align: center;
 }
 
-/* Header */
-.header {
-    text-align: center;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.logo-section h1 {
-    font-size: 1.1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    margin: 10px 0;
-}
+.header h1 { color: white; font-size: 1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
 
 .btn-download {
     background: linear-gradient(to bottom, #f39c12, #e67e22);
-    border: none;
-    color: white;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    box-shadow: 0 4px 0 #d35400;
-    cursor: pointer;
+    border: none; color: white; padding: 10px 30px;
+    border-radius: 20px; font-weight: bold; cursor: pointer;
+    box-shadow: 0 4px 0 #d35400; margin: 15px 0;
 }
 
-/* Card Form */
 .card-form {
-    background: #fff7e6;
-    border: 4px solid #d4a76a;
-    border-radius: 20px;
-    padding: 25px 15px 15px;
-    position: relative;
-    margin-top: 30px;
+    background: #fff7e6; border: 4px solid #d4a76a;
+    border-radius: 20px; padding: 25px 15px 15px;
+    position: relative; margin-top: 25px;
 }
 
 .card-header {
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #d4a76a;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 15px;
-    font-weight: bold;
-    white-space: nowrap;
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: #d4a76a; color: white; padding: 4px 15px;
+    border-radius: 10px; font-weight: bold; font-size: 0.9rem;
 }
 
-.form-group {
-    margin-bottom: 12px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 5px;
-}
-
+.form-group { text-align: left; margin-bottom: 15px; }
+.form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #444; }
 .form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    outline: none;
+    width: 100%; padding: 10px; border-radius: 8px;
+    border: 1px solid #ccc; outline: none;
 }
 
-.btn-konfirmasi {
-    width: 100%;
-    background: linear-gradient(to bottom, #44bc44, #2d9e2d);
-    border: none;
-    color: white;
-    padding: 12px;
-    border-radius: 12px;
-    font-weight: bold;
-    box-shadow: 0 4px 0 #1e6b1e;
-    cursor: pointer;
-}
+.tabs-wrapper { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
+.tab-item { background: #fdf2d0; padding: 8px 20px; border-radius: 20px; font-weight: bold; color: #999; }
+.tab-item.active { background: #f39c12; color: white; }
 
-/* Tabs */
-.tabs-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.tab-item {
-    background: #fdf2d0;
-    padding: 8px 25px;
-    border-radius: 20px;
-    font-weight: bold;
-    color: #888;
-}
-
-.tab-item.active {
-    background: #f39c12;
-    color: white;
-}
-
-/* Price Grid */
-.price-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .price-item {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    color: white;
-    position: relative;
-    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 15px; padding: 15px; color: white; cursor: pointer; position: relative;
 }
-
-.price-item.hot {
-    border-color: #f1c40f;
-}
-
+.price-item.hot { border: 2px solid #f1c40f; }
 .badge-hot {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: #e74c3c;
-    color: white;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 10px;
-    transform: rotate(15deg);
+    position: absolute; top: -5px; right: -5px; background: #e74c3c;
+    font-size: 0.6rem; padding: 2px 6px; border-radius: 5px;
 }
+.amount { display: block; font-size: 1.2rem; font-weight: bold; }
 
-.amount {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-.price {
-    font-size: 0.9rem;
-}
-
-/* Modal Pop-up */
+/* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 100;
 }
-
 .modal-content {
-    background: #fff7e6;
-    width: 85%;
-    max-width: 350px;
-    border-radius: 20px;
-    border: 4px solid #d4a76a;
-    overflow: hidden;
+    background: #fff7e6; width: 85%; max-width: 350px;
+    border-radius: 20px; border: 4px solid #d4a76a; overflow: hidden;
 }
-
-.modal-banner {
-    background: #d4a76a;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-}
-
-.modal-body {
-    padding: 20px;
-}
-
-.detail-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: 5px;
-}
-
+.modal-banner { background: #d4a76a; color: white; padding: 10px; font-weight: bold; }
+.modal-body { padding: 20px; }
+.detail-item { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
 .text-gold { color: #d35400; }
-
-.modal-footer {
-    padding: 0 20px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn-confirm-final {
-    background: #27ae60;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.btn-close {
-    background: #bdc3c7;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-}
+.modal-footer { padding: 15px; display: flex; flex-direction: column; gap: 8px; }
+.btn-confirm-final { background: #27ae60; border: none; color: white; padding: 10px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+.btn-close { background: #bdc3c7; border: none; padding: 10px; border-radius: 10px; cursor: pointer; }
