@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuan Layout Replika</title>
+    <title>Cuan - Bongkar Coin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="mobile-container">
         <header class="header">
             <div class="logo-section">
-                <img src="https://via.placeholder.com/80" alt="Logo Cuan" class="logo">
+                <div class="logo-wrapper">
+                    <img src="https://via.placeholder.com/100" alt="Logo Cuan" class="logo">
+                </div>
                 <h1>BELINYA UNTUNG<br>BONGKARNYA CEPAT!</h1>
             </div>
             <button class="btn-download">⬇ Download APK</button>
@@ -20,40 +23,135 @@
             <div class="card-header">Masukkan Data Anda</div>
             <div class="form-group">
                 <label>Neo ID</label>
-                <input type="text" placeholder="Neo ID">
+                <input type="number" id="player_id" placeholder="Neo ID" required>
             </div>
             <div class="form-group">
                 <label>No. Whatsapp</label>
-                <input type="text" placeholder="No. Whatsapp">
+                <input type="tel" id="whatsapp" placeholder="No. Whatsapp" required>
             </div>
-            <button class="btn-konfirmasi">Konfirmasi</button>
+            <button class="btn-konfirmasi">Konfirmasi Data</button>
         </div>
 
-        <div class="tab-container">
-            <div class="tabs">
-                <span>TOP UP</span>
-                <span class="active">BONGKAR</span>
-            </div>
+        <div class="tabs-wrapper">
+            <div class="tab-item">TOP UP</div>
+            <div class="tab-item active">BONGKAR</div>
         </div>
 
         <div class="price-grid">
-            <div class="price-item hot">
+            <div class="price-item hot" onclick="handleBongkar('1B', '60.000')">
+                <div class="badge-hot">Hot</div>
+                <div class="coin-icon">💰</div>
                 <span class="amount">1B</span>
                 <span class="price">60.000</span>
             </div>
-            <div class="price-item">
+            <div class="price-item" onclick="handleBongkar('200M', '12.000')">
+                <div class="coin-icon">💰</div>
                 <span class="amount">200M</span>
                 <span class="price">12.000</span>
             </div>
-            <div class="price-item">
+            <div class="price-item" onclick="handleBongkar('300M', '18.000')">
+                <div class="coin-icon">💰</div>
                 <span class="amount">300M</span>
                 <span class="price">18.000</span>
             </div>
-            <div class="price-item">
+            <div class="price-item" onclick="handleBongkar('400M', '24.000')">
+                <div class="coin-icon">💰</div>
                 <span class="amount">400M</span>
                 <span class="price">24.000</span>
             </div>
+            <div class="price-item" onclick="handleBongkar('500M', '30.000')">
+                <div class="coin-icon">💰</div>
+                <span class="amount">500M</span>
+                <span class="price">30.000</span>
             </div>
+            <div class="price-item" onclick="handleBongkar('600M', '36.000')">
+                <div class="coin-icon">💰</div>
+                <span class="amount">600M</span>
+                <span class="price">36.000</span>
+            </div>
+        </div>
     </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-banner">DETAIL PESANAN</div>
+            <div class="modal-body">
+                <div class="detail-item">
+                    <span>ID Pemain</span>
+                    <strong id="res-id">-</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Nickname</span>
+                    <strong id="res-nickname" class="text-gold">Mengecek...</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Pesanan</span>
+                    <strong id="res-product">-</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Total Harga</span>
+                    <strong id="res-price">-</strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-confirm-final" onclick="kirimKeAdmin()">KONFIRMASI</button>
+                <button class="btn-close" onclick="closeModal()">BATAL</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function handleBongkar(nominal, harga) {
+            const playerId = document.getElementById('player_id').value;
+            const wa = document.getElementById('whatsapp').value;
+
+            if (!playerId || !wa) {
+                alert("Silakan isi Neo ID dan No. Whatsapp dulu!");
+                return;
+            }
+
+            // Buka Modal & Set data awal
+            const modal = document.getElementById('orderModal');
+            modal.style.display = 'flex';
+            document.getElementById('res-id').innerText = playerId;
+            document.getElementById('res-product').innerText = "Bongkar " + nominal;
+            document.getElementById('res-price').innerText = "Rp " + harga;
+            document.getElementById('res-nickname').innerText = "Mengecek ID...";
+
+            try {
+                // Pastikan path ini sesuai dengan file handler.js Anda di server
+                const response = await fetch('/api/check-id', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ player_id: playerId })
+                });
+
+                const result = await response.json();
+
+                if (result.data && result.data.nickname) {
+                    document.getElementById('res-nickname').innerText = result.data.nickname;
+                } else {
+                    document.getElementById('res-nickname').innerText = "Tidak Ditemukan";
+                    document.getElementById('res-nickname').style.color = "red";
+                }
+            } catch (err) {
+                document.getElementById('res-nickname').innerText = "Error Server";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function kirimKeAdmin() {
+            const nick = document.getElementById('res-nickname').innerText;
+            if(nick === "Mengecek..." || nick === "Tidak Ditemukan") {
+                alert("Tunggu pengecekan ID selesai atau pastikan ID benar.");
+                return;
+            }
+            alert("Pesanan Berhasil! Menghubungi admin...");
+            // Logika redirect ke WA bisa ditaruh di sini
+        }
+    </script>
 </body>
 </html>
