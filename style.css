@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #5bc0de; /* Warna biru background */
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-container {
+    width: 100%;
+    max-width: 450px;
+    background: linear-gradient(to bottom, #5bc0de, #48a9c5);
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header & Download Button */
+.logo-section h1 {
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-download {
+    background: linear-gradient(to bottom, #f0ad4e, #ec971f);
+    border: none;
+    padding: 10px 40px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 0 #c67605;
+}
+
+/* Card Form */
+.card-form {
+    background: #fdf2d0;
+    border: 3px solid #d4a76a;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: #d4a76a;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: -35px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.btn-konfirmasi {
+    background: linear-gradient(to bottom, #8cc63f, #76aa32);
+    border: none;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 3px 0 #5a8226;
+}
+
+/* Grid Harga */
+.price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.price-item {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-item .amount { font-weight: bold; font-size: 1.2rem; }
