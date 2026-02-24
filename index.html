@@ -3,160 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuan - Bongkar Coin</title>
+    <title>Cuan - Bongkar Coin 3D Final</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="mobile-container">
         <header class="header">
-            <div class="logo-section">
-                <img src="https://via.placeholder.com/100" alt="Logo Cuan" class="logo">
-                <h1>BELINYA UNTUNG<br>BONGKARNYA CEPAT!</h1>
+            <div class="logo-wrapper">
+                <img src="https://via.placeholder.com/120x100?text=Cuan+Logo" alt="Logo Cuan" class="main-logo">
             </div>
-            <button class="btn-download">⬇ Download APK</button>
+            <h1 class="header-title">BELINYA UNTUNG<br>BONGKARNYA CEPAT!</h1>
+            <button class="btn-download-3d">
+                <span class="icon">⬇</span> Download APK
+            </button>
         </header>
 
-        <div class="card-form">
-            <div class="card-header">Masukkan Data Anda</div>
-            <div class="form-group">
-                <label>Neo ID</label>
-                <input type="number" id="player_id_input" placeholder="Masukkan ID (e.g. 168954314)">
-            </div>
-            <div class="form-group">
-                <label>No. Whatsapp</label>
-                <input type="tel" id="whatsapp_input" placeholder="No. Whatsapp">
+        <div class="card-3d">
+            <div class="card-tag">Masukkan Data Anda</div>
+            <div class="form-body">
+                <div class="input-group">
+                    <label>Neo ID</label>
+                    <input type="number" id="player_id_input" placeholder="Masukkan ID">
+                </div>
+                <div class="input-group">
+                    <label>No. Whatsapp</label>
+                    <input type="tel" id="whatsapp_input" placeholder="No. Whatsapp">
+                </div>
+                <button class="btn-konfirmasi-3d" onclick="validasiAwal()">Konfirmasi</button>
             </div>
         </div>
 
-        <div class="tabs-wrapper">
-            <div class="tab-item active">BONGKAR</div>
+        <div class="tabs-3d">
+            <div class="tab-btn">TOP UP</div>
+            <div class="tab-btn active">BONGKAR</div>
         </div>
 
         <div class="price-grid">
-            <div class="price-item hot" onclick="handleBongkar('1B', '60.000')">
+            <div class="price-card hot" onclick="handleBongkar('1B', '60.000')">
                 <div class="badge-hot">Hot</div>
-                <span class="amount">1B</span>
-                <span class="price">60.000</span>
+                <div class="card-content">💰 <div class="text-info"><span class="val">1B</span><span class="prc">60.000</span></div></div>
             </div>
-            <div class="price-item" onclick="handleBongkar('200M', '12.000')">
-                <span class="amount">200M</span>
-                <span class="price">12.000</span>
+            <div class="price-card" onclick="handleBongkar('200M', '12.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">200M</span><span class="prc">12.000</span></div></div>
             </div>
-            <div class="price-item" onclick="handleBongkar('300M', '18.000')">
-                <span class="amount">300M</span>
-                <span class="price">18.000</span>
+            <div class="price-card" onclick="handleBongkar('300M', '18.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">300M</span><span class="prc">18.000</span></div></div>
             </div>
-            <div class="price-item" onclick="handleBongkar('400M', '24.000')">
-                <span class="amount">400M</span>
-                <span class="price">24.000</span>
+            <div class="price-card" onclick="handleBongkar('400M', '24.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">400M</span><span class="prc">24.000</span></div></div>
             </div>
-            <div class="price-item" onclick="handleBongkar('500M', '30.000')">
-                <span class="amount">500M</span>
-                <span class="price">30.000</span>
+            <div class="price-card" onclick="handleBongkar('500M', '30.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">500M</span><span class="prc">30.000</span></div></div>
             </div>
-            <div class="price-item" onclick="handleBongkar('600M', '36.000')">
-                <span class="amount">600M</span>
-                <span class="price">36.000</span>
+            <div class="price-card" onclick="handleBongkar('600M', '36.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">600M</span><span class="prc">36.000</span></div></div>
             </div>
+            <div class="price-card" onclick="handleBongkar('700M', '42.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">700M</span><span class="prc">42.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('800M', '48.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">800M</span><span class="prc">48.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('900M', '54.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">900M</span><span class="prc">54.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('2B', '120.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">2B</span><span class="prc">120.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('3B', '180.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">3B</span><span class="prc">180.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('4B', '240.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">4B</span><span class="prc">240.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('5B', '300.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">5B</span><span class="prc">300.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('10B', '600.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">10B</span><span class="prc">600.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('30B', '1.800.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">30B</span><span class="prc">1.800.000</span></div></div>
+            </div>
+            <div class="price-card" onclick="handleBongkar('40B', '2.400.000')">
+                <div class="card-content">💰 <div class="text-info"><span class="val">40B</span><span class="prc">2.400.000</span></div></div>
+            </div>
+        </div>
+
+        <div class="footer-note-3d">
+            Download APK Cuan untuk bongkar dengan limit lebih besar
         </div>
     </div>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-banner">DETAIL PESANAN</div>
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-3d">
+            <div class="modal-header">DETAIL PESANAN</div>
             <div class="modal-body">
-                <div class="detail-item">
-                    <span>ID Pemain</span>
-                    <strong id="res-id">-</strong>
-                </div>
-                <div class="detail-item">
-                    <span>Nickname</span>
-                    <strong id="res-nickname" class="text-gold">Mengecek...</strong>
-                </div>
-                <div class="detail-item">
-                    <span>Pesanan</span>
-                    <strong id="res-product">-</strong>
-                </div>
-                <div class="detail-item">
-                    <span>Total Harga</span>
-                    <strong id="res-price">-</strong>
-                </div>
+                <div class="detail-row"><span>ID Pemain</span><strong id="res-id">-</strong></div>
+                <div class="detail-row"><span>Nickname</span><strong id="res-nickname">Mengecek...</strong></div>
+                <div class="detail-row"><span>Pesanan</span><strong id="res-product">-</strong></div>
+                <div class="detail-row"><span>Total Harga</span><strong id="res-price">-</strong></div>
             </div>
             <div class="modal-footer">
-                <button id="btn-final" class="btn-confirm-final" onclick="kirimKeAdmin()">KONFIRMASI</button>
-                <button class="btn-close" onclick="closeModal()">BATAL</button>
+                <button id="btn-final" class="btn-modal-confirm" onclick="kirimKeAdmin()">KONFIRMASI</button>
+                <button class="btn-modal-cancel" onclick="closeModal()">BATAL</button>
             </div>
         </div>
     </div>
 
     <script>
+        function validasiAwal() {
+            const id = document.getElementById('player_id_input').value;
+            const wa = document.getElementById('whatsapp_input').value;
+            if(!id || !wa) return alert("Isi ID dan WhatsApp dulu!");
+            alert("Data tersimpan. Pilih nominal di bawah.");
+        }
+
         async function handleBongkar(nominal, harga) {
             const id = document.getElementById('player_id_input').value;
             const wa = document.getElementById('whatsapp_input').value;
+            if (!id || !wa) return alert("Isi data di atas dulu!");
 
-            if (!id || !wa) {
-                alert("Harap isi ID dan Nomor WhatsApp terlebih dahulu!");
-                return;
-            }
-
-            // Tampilkan Modal
-            const modal = document.getElementById('orderModal');
-            modal.style.display = 'flex';
-            
-            // Set Data Tampilan Modal
+            document.getElementById('orderModal').style.display = 'flex';
             document.getElementById('res-id').innerText = id;
             document.getElementById('res-product').innerText = "Bongkar " + nominal;
             document.getElementById('res-price').innerText = "Rp " + harga;
             
             const nickSpan = document.getElementById('res-nickname');
             const btnFinal = document.getElementById('btn-final');
-            
             nickSpan.innerText = "Mengecek...";
-            nickSpan.style.color = "#d35400";
             btnFinal.disabled = true;
-            btnFinal.style.opacity = "0.5";
 
             try {
-                // Fetch ke backend api/cek.js
                 const response = await fetch('/api/cek', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ player_id: id })
                 });
-
                 const res = await response.json();
-
-                // Logika pengecekan sesuai API Anda
                 if (res.En === 0 && res.Data) {
                     nickSpan.innerText = res.Data.player_nick;
                     nickSpan.style.color = "#27ae60";
                     btnFinal.disabled = false;
-                    btnFinal.style.opacity = "1";
                 } else {
-                    nickSpan.innerText = "ID Tidak Ditemukan";
-                    nickSpan.style.color = "red";
+                    nickSpan.innerText = "Error Server / ID Salah";
+                    nickSpan.style.color = "#e74c3c";
                 }
             } catch (e) {
-                nickSpan.innerText = "Error Server";
-                nickSpan.style.color = "red";
+                nickSpan.innerText = "Server Error";
+                nickSpan.style.color = "#e74c3c";
             }
         }
 
-        function closeModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
+        function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 
         function kirimKeAdmin() {
             const id = document.getElementById('res-id').innerText;
             const nick = document.getElementById('res-nickname').innerText;
-            const pesanan = document.getElementById('res-product').innerText;
-            
-            // Contoh format pesan WhatsApp
-            const pesan = `Halo Admin, saya mau bongkar:\nID: ${id}\nNick: ${nick}\nProduk: ${pesanan}`;
-            const linkWA = `https://wa.me/628123456789?text=${encodeURIComponent(pesan)}`;
-            
-            window.open(linkWA, '_blank');
+            const prod = document.getElementById('res-product').innerText;
+            const text = `Halo Admin, saya mau bongkar:\nID: ${id}\nNick: ${nick}\nPesanan: ${prod}`;
+            window.open(`https://wa.me/628123456789?text=${encodeURIComponent(text)}`, '_blank');
         }
     </script>
 </body>
