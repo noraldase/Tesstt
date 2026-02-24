@@ -11,9 +11,7 @@
     <div class="mobile-container">
         <header class="header">
             <div class="logo-section">
-                <div class="logo-wrapper">
-                    <img src="https://via.placeholder.com/100" alt="Logo Cuan" class="logo">
-                </div>
+                <img src="https://via.placeholder.com/100" alt="Logo Cuan" class="logo">
                 <h1>BELINYA UNTUNG<br>BONGKARNYA CEPAT!</h1>
             </div>
             <button class="btn-download">⬇ Download APK</button>
@@ -23,13 +21,12 @@
             <div class="card-header">Masukkan Data Anda</div>
             <div class="form-group">
                 <label>Neo ID</label>
-                <input type="number" id="player_id" placeholder="Neo ID" required>
+                <input type="number" id="player_id_input" placeholder="Masukkan ID (e.g. 168954314)">
             </div>
             <div class="form-group">
                 <label>No. Whatsapp</label>
-                <input type="tel" id="whatsapp" placeholder="No. Whatsapp" required>
+                <input type="tel" id="whatsapp_input" placeholder="No. Whatsapp">
             </div>
-            <button class="btn-konfirmasi">Konfirmasi Data</button>
         </div>
 
         <div class="tabs-wrapper">
@@ -40,32 +37,26 @@
         <div class="price-grid">
             <div class="price-item hot" onclick="handleBongkar('1B', '60.000')">
                 <div class="badge-hot">Hot</div>
-                <div class="coin-icon">💰</div>
                 <span class="amount">1B</span>
                 <span class="price">60.000</span>
             </div>
             <div class="price-item" onclick="handleBongkar('200M', '12.000')">
-                <div class="coin-icon">💰</div>
                 <span class="amount">200M</span>
                 <span class="price">12.000</span>
             </div>
             <div class="price-item" onclick="handleBongkar('300M', '18.000')">
-                <div class="coin-icon">💰</div>
                 <span class="amount">300M</span>
                 <span class="price">18.000</span>
             </div>
             <div class="price-item" onclick="handleBongkar('400M', '24.000')">
-                <div class="coin-icon">💰</div>
                 <span class="amount">400M</span>
                 <span class="price">24.000</span>
             </div>
             <div class="price-item" onclick="handleBongkar('500M', '30.000')">
-                <div class="coin-icon">💰</div>
                 <span class="amount">500M</span>
                 <span class="price">30.000</span>
             </div>
             <div class="price-item" onclick="handleBongkar('600M', '36.000')">
-                <div class="coin-icon">💰</div>
                 <span class="amount">600M</span>
                 <span class="price">36.000</span>
             </div>
@@ -94,7 +85,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-confirm-final" onclick="kirimKeAdmin()">KONFIRMASI</button>
+                <button id="btn-final" class="btn-confirm-final" onclick="kirimKeAdmin()">KONFIRMASI</button>
                 <button class="btn-close" onclick="closeModal()">BATAL</button>
             </div>
         </div>
@@ -102,40 +93,54 @@
 
     <script>
         async function handleBongkar(nominal, harga) {
-            const playerId = document.getElementById('player_id').value;
-            const wa = document.getElementById('whatsapp').value;
+            const id = document.getElementById('player_id_input').value;
+            const wa = document.getElementById('whatsapp_input').value;
 
-            if (!playerId || !wa) {
-                alert("Silakan isi Neo ID dan No. Whatsapp dulu!");
+            if (!id || !wa) {
+                alert("Harap isi ID dan Nomor WhatsApp terlebih dahulu!");
                 return;
             }
 
-            // Buka Modal & Set data awal
+            // Tampilkan Modal
             const modal = document.getElementById('orderModal');
             modal.style.display = 'flex';
-            document.getElementById('res-id').innerText = playerId;
+            
+            // Set Data Tampilan Modal
+            document.getElementById('res-id').innerText = id;
             document.getElementById('res-product').innerText = "Bongkar " + nominal;
             document.getElementById('res-price').innerText = "Rp " + harga;
-            document.getElementById('res-nickname').innerText = "Mengecek ID...";
+            
+            const nickSpan = document.getElementById('res-nickname');
+            const btnFinal = document.getElementById('btn-final');
+            
+            nickSpan.innerText = "Mengecek...";
+            nickSpan.style.color = "#d35400";
+            btnFinal.disabled = true;
+            btnFinal.style.opacity = "0.5";
 
             try {
-                // Pastikan path ini sesuai dengan file handler.js Anda di server
-                const response = await fetch('/api/check-id', {
+                // Fetch ke backend api/cek.js
+                const response = await fetch('/api/cek', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ player_id: playerId })
+                    body: JSON.stringify({ player_id: id })
                 });
 
-                const result = await response.json();
+                const res = await response.json();
 
-                if (result.data && result.data.nickname) {
-                    document.getElementById('res-nickname').innerText = result.data.nickname;
+                // Logika pengecekan sesuai API Anda
+                if (res.En === 0 && res.Data) {
+                    nickSpan.innerText = res.Data.player_nick;
+                    nickSpan.style.color = "#27ae60";
+                    btnFinal.disabled = false;
+                    btnFinal.style.opacity = "1";
                 } else {
-                    document.getElementById('res-nickname').innerText = "Tidak Ditemukan";
-                    document.getElementById('res-nickname').style.color = "red";
+                    nickSpan.innerText = "ID Tidak Ditemukan";
+                    nickSpan.style.color = "red";
                 }
-            } catch (err) {
-                document.getElementById('res-nickname').innerText = "Error Server";
+            } catch (e) {
+                nickSpan.innerText = "Error Server";
+                nickSpan.style.color = "red";
             }
         }
 
@@ -144,13 +149,15 @@
         }
 
         function kirimKeAdmin() {
+            const id = document.getElementById('res-id').innerText;
             const nick = document.getElementById('res-nickname').innerText;
-            if(nick === "Mengecek..." || nick === "Tidak Ditemukan") {
-                alert("Tunggu pengecekan ID selesai atau pastikan ID benar.");
-                return;
-            }
-            alert("Pesanan Berhasil! Menghubungi admin...");
-            // Logika redirect ke WA bisa ditaruh di sini
+            const pesanan = document.getElementById('res-product').innerText;
+            
+            // Contoh format pesan WhatsApp
+            const pesan = `Halo Admin, saya mau bongkar:\nID: ${id}\nNick: ${nick}\nProduk: ${pesanan}`;
+            const linkWA = `https://wa.me/628123456789?text=${encodeURIComponent(pesan)}`;
+            
+            window.open(linkWA, '_blank');
         }
     </script>
 </body>
