@@ -27,7 +27,7 @@ body {
     
     /* 1. MENGGANTI BG DI DALAM BINGKAI */
     /* Pastikan file 'background.jpg' ada di folder yang sama */
-    background: url('bg.png') no-repeat center center; 
+    background: url('bg.jpg') no-repeat center center; 
     background-size: 100% 100%;
     
     position: relative;
