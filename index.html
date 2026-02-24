@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuan - Bongkar Coin 3D Final</title>
+    <title>Cuan - Bongkar Coin 3D Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="mobile-container">
         <header class="header">
-    <div class="logo-container">
-        <img src="cathoki.png" alt="Cuan" class="main-logo">
-    </div>
-    <h1 class="header-title">BELINYA UNTUNG<br>BONGKARNYA CEPAT!</h1>
-    <button class="btn-download-3d">
-        <span class="icon">⬇</span> Download APK
-    </button>
-</header>
+            <div class="logo-container">
+                <img src="cathoki.png" alt="Cuan" class="main-logo">
+            </div>
+            <h1 class="header-title">BELINYA UNTUNG<br>BONGKARNYA CEPAT!</h1>
+            <button class="btn-download-3d">
+                <span class="icon">⬇</span> Download APK
+            </button>
+        </header>
 
         <div class="card-3d">
             <div class="card-tag">Masukkan Data Anda</div>
@@ -30,7 +30,9 @@
                     <label>No. Whatsapp</label>
                     <input type="tel" id="whatsapp_input" placeholder="No. Whatsapp">
                 </div>
-                <button class="btn-konfirmasi-3d" onclick="validasiAwal()">Konfirmasi</button>
+                <div class="btn-img-container" onclick="validasiAwal()">
+                    <img src="konfirmasi.png" alt="Konfirmasi" class="img-button">
+                </div>
             </div>
         </div>
 
@@ -41,53 +43,72 @@
 
         <div class="price-grid">
             <div class="price-card hot" onclick="handleBongkar('1B', '60.000')">
-                <div class="badge-hot">Hot</div>
-                <div class="card-content">💰 <div class="text-info"><span class="val">1B</span><span class="prc">60.000</span></div></div>
+                <img src="ribbon.png" class="ribbon-hot" alt="Hot">
+                <div class="card-content">
+                    <img src="koin.png" class="koin-icon-payload" alt="Koin">
+                    <div class="text-info"><span class="val">1B</span><span class="prc">60.000</span></div>
+                </div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('200M', '12.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">200M</span><span class="prc">12.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">200M</span><span class="prc">12.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('300M', '18.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">300M</span><span class="prc">18.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">300M</span><span class="prc">18.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('400M', '24.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">400M</span><span class="prc">24.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">400M</span><span class="prc">24.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('500M', '30.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">500M</span><span class="prc">30.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">500M</span><span class="prc">30.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('600M', '36.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">600M</span><span class="prc">36.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">600M</span><span class="prc">36.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('700M', '42.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">700M</span><span class="prc">42.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">700M</span><span class="prc">42.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('800M', '48.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">800M</span><span class="prc">48.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">800M</span><span class="prc">48.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('900M', '54.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">900M</span><span class="prc">54.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">900M</span><span class="prc">54.000</span></div></div>
             </div>
-            <div class="price-card" onclick="handleBongkar('2B', '120.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">2B</span><span class="prc">120.000</span></div></div>
+
+            <div class="price-card hot" onclick="handleBongkar('2B', '120.000')">
+                <img src="ribbon.png" class="ribbon-hot" alt="Hot">
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">2B</span><span class="prc">120.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('3B', '180.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">3B</span><span class="prc">180.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">3B</span><span class="prc">180.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('4B', '240.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">4B</span><span class="prc">240.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">4B</span><span class="prc">240.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('5B', '300.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">5B</span><span class="prc">300.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">5B</span><span class="prc">300.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('10B', '600.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">10B</span><span class="prc">600.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">10B</span><span class="prc">600.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('30B', '1.800.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">30B</span><span class="prc">1.800.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">30B</span><span class="prc">1.800.000</span></div></div>
             </div>
+
             <div class="price-card" onclick="handleBongkar('40B', '2.400.000')">
-                <div class="card-content">💰 <div class="text-info"><span class="val">40B</span><span class="prc">2.400.000</span></div></div>
+                <div class="card-content"><img src="koin.png" class="koin-icon-payload"><div class="text-info"><span class="val">40B</span><span class="prc">2.400.000</span></div></div>
             </div>
         </div>
 
@@ -97,7 +118,7 @@
     </div>
 
     <div id="orderModal" class="modal-overlay">
-        <div class="modal-3d">
+        <div class="modal-3d-board">
             <div class="modal-header">DETAIL PESANAN</div>
             <div class="modal-body">
                 <div class="detail-row"><span>ID Pemain</span><strong id="res-id">-</strong></div>
@@ -106,7 +127,9 @@
                 <div class="detail-row"><span>Total Harga</span><strong id="res-price">-</strong></div>
             </div>
             <div class="modal-footer">
-                <button id="btn-final" class="btn-modal-confirm" onclick="kirimKeAdmin()">KONFIRMASI</button>
+                <div class="btn-img-container" onclick="kirimKeAdmin()">
+                    <img src="konfirmasi.png" alt="Konfirmasi" id="btn-final-img" class="img-button">
+                </div>
                 <button class="btn-modal-cancel" onclick="closeModal()">BATAL</button>
             </div>
         </div>
@@ -131,9 +154,9 @@
             document.getElementById('res-price').innerText = "Rp " + harga;
             
             const nickSpan = document.getElementById('res-nickname');
-            const btnFinal = document.getElementById('btn-final');
+            const btnFinal = document.getElementById('btn-final-img');
             nickSpan.innerText = "Mengecek...";
-            btnFinal.disabled = true;
+            btnFinal.style.opacity = "0.5";
 
             try {
                 const response = await fetch('/api/cek', {
@@ -145,14 +168,13 @@
                 if (res.En === 0 && res.Data) {
                     nickSpan.innerText = res.Data.player_nick;
                     nickSpan.style.color = "#27ae60";
-                    btnFinal.disabled = false;
+                    btnFinal.style.opacity = "1";
                 } else {
-                    nickSpan.innerText = "Error Server / ID Salah";
+                    nickSpan.innerText = "ID Tidak Ditemukan";
                     nickSpan.style.color = "#e74c3c";
                 }
             } catch (e) {
                 nickSpan.innerText = "Server Error";
-                nickSpan.style.color = "#e74c3c";
             }
         }
 
